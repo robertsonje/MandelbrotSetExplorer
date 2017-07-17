@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>MandelbrotSetExplorer</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>src/mandelbrotGenerator/ColorGradient.java</name>
+			<type>1</type>
+			<location>C:/Users/Jehrick Robertson/workspace/MandelbrotSetExplorer/src/mandelbrotGenerator/ColorGradient.java</location>
+		</link>
+		<link>
+			<name>src/mandelbrotGenerator/ErrorHandler.java</name>
+			<type>1</type>
+			<location>C:/Users/Jehrick Robertson/workspace/MandelbrotSetExplorer/src/mandelbrotGenerator/ErrorHandler.java</location>
+		</link>
+	</linkedResources>
+</projectDescription>
