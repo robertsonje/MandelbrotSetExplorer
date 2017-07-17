@@ -20,6 +20,10 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class MbzFileManager {
+	/**
+	 * This is a class that handles the MBZ file format, a file format
+	 * that keeps track of Mandelbrot zoom points.
+	 */
 
 	private FileOutputStream fileOutput = null;
 	private DataOutputStream dataOutput = null;
@@ -35,6 +39,11 @@ public class MbzFileManager {
 	public final static String FILE_EXTENSION = ".mbz";
 
 	public MbzFileManager( MainWindow owner ) {
+		/**
+		 * Constructor for the MbzFileManager object.
+		 *
+		 * @param  owner	The main program owner.
+		 */
 		// TODO Auto-generated constructor stub
 		this.owner = owner;
 		zoomPointFileChooser = new JFileChooser( "rc/Zoom Points" );
@@ -43,18 +52,42 @@ public class MbzFileManager {
 	}
 
 	public double getXCoordinate() {
+		/**
+		 * Gets the X coordinate of the zoom point.
+		 *
+		 * @return  The x coordinate.
+		 */
 		return xCoordinate;
 	}
 
 	public double getYCoordinate() {
+		/**
+		 * Gets the Y coordinate of the zoom point.
+		 *
+		 * @return  The y coordinate.
+		 */
 		return yCoordinate;
 	}
 
 	public int getZoomLevel() {
+		/**
+		 * Gets the zoom level of the zoom point.
+		 *
+		 * @return  The zoom level.
+		 */
 		return zoomLevel;
 	}
 
 	public int writeZoomPoint( double xCoordinate, double yCoordinate, int zoomLevel ) {
+		/**
+		 * Saves the zoom point to a file.
+		 *
+		 * @param  xCoordinate		The X coordinate of the zoom point
+		 * @param  yCoordinate		The Y coordinate of the zoom point
+		 * @param  zoomLevel		The zoom level
+		 * @return		The status of the function. '0' indicates the file was written without
+		 * 				any problems, any other value means there was an error.
+		 */
     	int dialogVal = zoomPointFileChooser.showSaveDialog( owner );
     	if ( dialogVal == JFileChooser.APPROVE_OPTION ){
     		zoomPointFileChooser.setDialogTitle("Save zoom point to where?");
@@ -109,6 +142,13 @@ public class MbzFileManager {
 	}
 
 	public int readZoomPoint() {
+		/**
+		 * Reads the zoom point from a file, then sets the view to said zoom point
+		 * if the read is successful.
+		 *
+		 * @return		The status of the function. '0' indicates the file was read without
+		 * 				any problems, any other value means there was an error.
+		 */
     	int dialogVal = zoomPointFileChooser.showOpenDialog( owner );
     	long header;
     	if ( dialogVal == JFileChooser.APPROVE_OPTION ){

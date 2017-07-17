@@ -25,10 +25,9 @@ public class PainterImage extends BufferedImage {
 
 	public PainterImage ( MainWindow owner ) {
 		/**
-		 * Constructor for the painter object. A new color palette is generated.
-		 * TODO: Make different color palettes for different looks.
+		 * Constructor for the PainterImage object. A new color palette is generated.
 		 *
-		 * @see         JPanel
+		 * @see         BufferedImage
 		 */
 		// initialize the color palette
 		super( (int)MainWindow.DEFAULT_SIZE.getX(), (int)MainWindow.DEFAULT_SIZE.getY(), BufferedImage.TYPE_INT_RGB );
@@ -107,7 +106,7 @@ public class PainterImage extends BufferedImage {
 
 	public Color getIterationColor( int iteration ) {
 		/**
-		 * Gets the color in the color pallete corresponding to its Mandelbrot iteration index.
+		 * Gets the color in the color palette corresponding to its Mandelbrot iteration index.
 		 *
 		 * @param	iteration	The iteration the color is mapped to.
 		 * @return	the color mapped to the current iteration, or black if it's out of bounds
@@ -125,13 +124,11 @@ public class PainterImage extends BufferedImage {
 		 */
 		// bounds check
 		if ( x < 0 || x >= width ) {
-			System.err.println("Error in " + Car.class.getDeclaredMethods()[0].getName() 
-					+ "; x value (" + x + ") is out of bounds");
+			ErrorHandler.printErrorMessage(" x value (" + x + ") is out of bounds" );
 			return;
 		}
 		if ( y < 0 || y >= height ) {
-			System.err.println("Error in " + Car.class.getDeclaredMethods()[0].getName() 
-					+ "; y value (" + y + ") is out of bounds");
+			ErrorHandler.printErrorMessage(" x value (" + x + ") is out of bounds" );
 			return;
 		}
 		setRGB( x, y, g2d.getColor().getRGB() );

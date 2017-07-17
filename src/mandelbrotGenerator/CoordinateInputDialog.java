@@ -195,7 +195,7 @@ public class CoordinateInputDialog extends Dialog implements WindowListener {
 	}
 
 	public int parseCoordinates() {
-		/** 
+		/**
 		 * Parses the coordinates in the boxes. If the coordinates
 		 * are invalid, then it prints out an error dialog and doesn't
 		 * automatically zoom in on the target.
@@ -230,53 +230,25 @@ public class CoordinateInputDialog extends Dialog implements WindowListener {
 	}
 
 	@Override
-	public void windowActivated(java.awt.event.WindowEvent arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-
-
-	@Override
 	public void windowClosing(java.awt.event.WindowEvent arg0) {
+		/**
+		 * Window closing event handler.
+		 *
+		 * @param	arg0	Window event. Unused in this function.
+		 */
 		// TODO Auto-generated method stub
 
 		//This will only be seen on standard output.
 		setVisible( false );
 	}
 
-
-	@Override
-	public void windowDeactivated(java.awt.event.WindowEvent arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-
-	@Override
-	public void windowDeiconified(java.awt.event.WindowEvent arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-
-	@Override
-	public void windowIconified(java.awt.event.WindowEvent arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-
-	@Override
-	public void windowOpened(java.awt.event.WindowEvent arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-
-
 	@Override
 	public void windowClosed(java.awt.event.WindowEvent arg0) {
+		/**
+		 * Window closing event handler.
+		 *
+		 * @param	arg0	Window event. Unused in this function.
+		 */
 		//This will only be seen on standard output.
 		setVisible( false );
 	}

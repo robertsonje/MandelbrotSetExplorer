@@ -28,6 +28,10 @@ import javax.swing.border.BevelBorder;
 
 public class SettingsDialog extends JDialog {
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	private JTextField textField;
 	private JTextField textField_1;
@@ -187,7 +191,8 @@ public class SettingsDialog extends JDialog {
 					displayInnerPanel.add(lblGradient, gbc_lblGradient);
 				}
 				{
-					JComboBox comboBox = new JComboBox();
+					// this is only temporary until the type is defined
+					JComboBox<Integer> comboBox = new JComboBox<Integer>();
 					GridBagConstraints gbc_comboBox = new GridBagConstraints();
 					gbc_comboBox.insets = new Insets(0, 0, 5, 0);
 					gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
@@ -260,7 +265,8 @@ public class SettingsDialog extends JDialog {
 					displayInnerPanel.add(lblResolutions, gbc_lblResolutions);
 				}
 				{
-					JList<Integer> list = new JList();
+					// This is only temporary until the type is defined
+					JList<Integer> list = new JList<Integer>();
 					GridBagConstraints gbc_list = new GridBagConstraints();
 					gbc_list.fill = GridBagConstraints.BOTH;
 					gbc_list.gridx = 3;

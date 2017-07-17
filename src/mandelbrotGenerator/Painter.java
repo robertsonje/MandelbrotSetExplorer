@@ -30,7 +30,6 @@ public class Painter extends JPanel {
 	public Painter ( MainWindow owner ) {
 		/**
 		 * Constructor for the painter object. A new color palette is generated.
-		 * TODO: Make different color palettes for different looks.
 		 *
 		 * @see         JPanel
 		 */
@@ -47,7 +46,6 @@ public class Painter extends JPanel {
 	public void setMandelbrotImage() {
 		/**
 		 * Constructor for the painter object. A new color palette is generated.
-		 * TODO: Make different color palettes for different looks.
 		 *
 		 * @see         JPanel
 		 */
@@ -73,6 +71,15 @@ public class Painter extends JPanel {
 	}
 
 	public static Color interpolateColor( Color color1, Color color2, double bias ) {
+		/**
+		 * Uses linear interpolation to generate the mid color between two colors given a bias.
+		 *
+		 * @param	color1		The first color
+		 * @param	color2		The second color
+		 * @param	bias		The bias of the color, i.e. how much of the second color should there
+		 * 						be compared to the first color.
+		 * @return			The interpolated color
+		 */
 		int r = (int)( ( 1.0 - bias )*(double)color1.getRed() + bias*(double)color2.getRed() );
 		int g = (int)( (1.0 - bias)*(double)color1.getGreen() + bias*(double)color2.getGreen() );
 		int b = (int)( (1.0 - bias)*(double)color1.getBlue() + bias*(double)color2.getBlue() );
@@ -102,10 +109,8 @@ public class Painter extends JPanel {
 
 	public void generateMandelbrotImage() {
 		/**
-		 * Constructor for the painter object. A new color palette is generated.
-		 * TODO: Make different color palettes for different looks.
+		 * Creates the Mandelbrot images by generating the iterations and displaying it.
 		 *
-		 * @see         JPanel
 		 */
 		mandelbrotSet.generateIterations();
 		setMandelbrotImage();
@@ -122,10 +127,22 @@ public class Painter extends JPanel {
 	}
 
 	public BufferedImage getImage() {
+		/**
+		 * Returns the internal image in BufferedImage format.
+		 *
+		 * @return		The image drawn by the Painter object.
+		 */
 		return painterImage;
 	}
 
 	public double getIterations( int x, int y ) {
+		/**
+		 * Returns the number of iterations at a certain point on the image.
+		 *
+		 * @param	x	The image X coordinate
+		 * @param	y	The image Y coordinate
+		 * @return		The number of iterations at that point.
+		 */
 		if ( mandelbrotSet.isSmooth() ) {
 			return mandelbrotSet.getIterationReal( x, y );
 		} else {

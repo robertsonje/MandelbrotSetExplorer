@@ -3,7 +3,7 @@
 *
 * @author  Jehrick Robertson
 * @version 1.0
-* @since   06-08-2017 
+* @since   06-08-2017
 */
 
 package mandelbrotGenerator;
@@ -20,7 +20,7 @@ public class MathVector {
 		/**
 		 * Constructor for the MathVector object. This uses 3 numbers
 		 * for initialization. It does not use unit vectors.
-		 * 
+		 *
 		 * @param  x	The horizontal (x) value
 		 * @param  y	The vertical (y) value
 		 * @param  z	The distance (z) value
@@ -31,15 +31,16 @@ public class MathVector {
 		vec3[2] = z;
 		vec3[3] = 1.0d;
 	}
-	
+
 	public MathVector( double x, double y, double z, boolean usesUnitVectors ) {
 		/**
 		 * Constructor for the MathVector object. This uses 3 numbers
 		 * for initialization, and a boolean value for determining
-		 * 
-		 * @param  x	The horizontal (x) value
-		 * @param  y	The vertical (y) value
-		 * @param  z	The distance (z) value
+		 *
+		 * @param  x				The horizontal (x) value
+		 * @param  y				The vertical (y) value
+		 * @param  z				The distance (z) value
+		 * @param	usesUnitVectors	Decides whether or not to use unit vectors when parsing to string
 		 */
 		vec3 = new double[4];
 		vec3[0] = x;
@@ -52,7 +53,7 @@ public class MathVector {
 	public MathVector( MathVector a ) {
 		/**
 		 * Copy contructor for the MathVector object.
-		 * 
+		 *
 		 * @param  a	The MathVector to copy from.
 		 */
 		this( a.getX(), a.getY(), a.getZ(), a.getUnitVectorMode() );
@@ -117,7 +118,7 @@ public class MathVector {
 			return "< " + vec3[0] + "\t\t\t\t " + vec3[1] + "\t\t\t\t " + vec3[2] + " >";
 		}
 	}
-	
+
 	public void setUnitVectorMode( boolean usesUnitVectors ) {
 		/**
 		 * Sets the unit vector mode.
@@ -126,7 +127,7 @@ public class MathVector {
 		 */
 		this.usesUnitVectors = usesUnitVectors;
 	}
-	
+
 	public boolean getUnitVectorMode() {
 		/**
 		 * Gets the unit vector mode.
@@ -135,149 +136,156 @@ public class MathVector {
 		 */
 		return this.usesUnitVectors;
 	}
-	
+
 	public void clear() {
 		/**
-		 * Main function. 
+		 * Sets the x, y, and z values to zero.
 		 *
-		 * @param  args			Program arguments, although there are none.
 		 */
 		vec3[0] = 0.0;
 		vec3[1] = 0.0;
 		vec3[2] = 0.0;
 		vec3[3] = 1.0;
 	}
-	
+
 	public void setX( double x ) {
 		/**
-		 * Main function. 
+		 * Sets the X value to the given value.
 		 *
-		 * @param  args			Program arguments, although there are none.
+		 * @param  x			The x value to set to.
 		 */
 		vec3[0] = x;
 	}
 
 	public void setY( double y ) {
 		/**
-		 * Main function. 
+		 * Sets the Y value to the given value.
 		 *
-		 * @param  args			Program arguments, although there are none.
+		 * @param  y			The y value to set to.
 		 */
 		vec3[1] = y;
 	}
 
 	public void setZ( double z ) {
 		/**
-		 * Main function. 
+		 * Sets the Z value to the given value.
 		 *
-		 * @param  args			Program arguments, although there are none.
+		 * @param  z			The z value to set to.
 		 */
 		vec3[2] = z;
 	}
-	
+
 	public double getX() {
 		/**
-		 * Main function. 
+		 * Gets the X value from the vector.
 		 *
-		 * @param  args			Program arguments, although there are none.
+		 * @return  The x value of the vector.
 		 */
 		return vec3[0];
 	}
 
 	public double getY() {
 		/**
-		 * Main function. 
+		 * Gets the Y value from the vector.
 		 *
-		 * @param  args			Program arguments, although there are none.
+		 * @return  The y value of the vector.
 		 */
 		return vec3[1];
 	}
 
 	public double getZ() {
 		/**
-		 * Main function. 
+		 * Gets the Z value from the vector.
 		 *
-		 * @param  args			Program arguments, although there are none.
+		 * @return  The z value of the vector.
 		 */
 		return vec3[2];
 	}
-	
+
 	public double getLength() {
 		/**
-		 * Main function. 
+		 * Gets the length of the value through use of the Pythagorean theorem.
 		 *
-		 * @param  args			Program arguments, although there are none.
+		 * @return  The length of the vector.
 		 */
 		return Math.sqrt(
-				( vec3[0] * vec3[0] ) + 
-				( vec3[1] * vec3[1] ) + 
+				( vec3[0] * vec3[0] ) +
+				( vec3[1] * vec3[1] ) +
 				( vec3[2] * vec3[2] ) );
 	}
-	
+
 	public double getSumOfSquares() {
 		/**
-		 * Main function. 
+		 * Gets the sum of squares, which is useful for Mandelbrot calculations.
 		 *
-		 * @param  args			Program arguments, although there are none.
+		 * @return  The sum of squares of the vector.
 		 */
-		return ( ( vec3[0] * vec3[0] ) + 
-				  ( vec3[1] * vec3[1] ) + 
+		return ( ( vec3[0] * vec3[0] ) +
+				  ( vec3[1] * vec3[1] ) +
 				  ( vec3[2] * vec3[2] ) );
 	}
-	
+
 	public MathVector add( MathVector a ) {
 		/**
-		 * Main function. 
+		 * Adds the components of one vector to this vector.
+		 * The original values are overwritten.
 		 *
-		 * @param  args			Program arguments, although there are none.
+		 * @param  a			The vector to add with.
+		 * @return				The resulting vector.
 		 */
 		vec3[0] += a.getX();
 		vec3[1] += a.getY();
 		vec3[2] += a.getZ();
 		return this;
 	}
-	
+
 	public MathVector subtract( MathVector a ) {
 		/**
-		 * Main function. 
+		 * Subtracts the components of the vector with one of another.
+		 * The original values are overwritten.
 		 *
-		 * @param  args			Program arguments, although there are none.
+		 * @param  a			The vector to subtract with.
+		 * @return				The resulting vector.
 		 */
 		vec3[0] -= a.getX();
 		vec3[1] -= a.getY();
 		vec3[2] -= a.getZ();
 		return this;
 	}
-	
+
 	public MathVector multiply( double a ) {
 		/**
-		 * Main function. 
+		 * Performs scalar multiplication on a vector.
+		 * The original values are overwritten.
 		 *
-		 * @param  args			Program arguments, although there are none.
+		 * @param  a			Scalar value to multiply with.
+		 * @return				The resulting vector.
 		 */
 		vec3[0] *= a;
 		vec3[1] *= a;
 		vec3[2] *= a;
 		return this;
 	}
-	
+
 	public MathVector divide( double a ) {
 		/**
-		 * Main function. 
+		 * Performs scalar division on a vector.
 		 *
-		 * @param  args			Program arguments, although there are none.
+		 * @param  args			Scalar value to divide with.
+		 * @return				The resulting vector.
 		 */
 		vec3[0] /= a;
 		vec3[1] /= a;
 		vec3[2] /= a;
 		return this;
 	}
-	
+
 	public MathVector normalize() {
 		/**
-		 * Main function. 
+		 * Normalizes the vector so that its length is 1.
+		 * The original values are overwritten.
 		 *
-		 * @param  args			Program arguments, although there are none.
+		 * @return				The normalized vector.
 		 */
 		double norm = getLength();
 		vec3[0] /= norm;
@@ -285,45 +293,50 @@ public class MathVector {
 		vec3[2] /= norm;
 		return this;
 	}
-	
+
 	public double dotProduct( MathVector a ) {
 		/**
-		 * Main function. 
+		 * Performs the dot product of this vector and an input vector.
 		 *
-		 * @param  args			Program arguments, although there are none.
+		 * @param  a			The vector used for performing the dot product.
+		 * @return				The dot product.
 		 */
-		return	( ( vec3[0] * a.getX() ) + 
-				  ( vec3[1] * a.getY() ) + 
+		return	( ( vec3[0] * a.getX() ) +
+				  ( vec3[1] * a.getY() ) +
 				  ( vec3[2] * a.getZ() ) );
 	}
-	
+
 	public MathVector crossProduct( MathVector b ) {
 		/**
-		 * Main function. 
+		 * Performs the cross product of this vector and an input vector.
+		 * The original values are overwritten.
 		 *
-		 * @param  args			Program arguments, although there are none.
+		 * @param  b			The vector used for performing the dot product.
+		 * @return				The cross product vector.
 		 */
-		double tempX = vec3[0]; 
-		double tempY = vec3[1];  
-		double tempZ = vec3[2];  
+		double tempX = vec3[0];
+		double tempY = vec3[1];
+		double tempZ = vec3[2];
 		vec3[0] = ( ( tempY * b.getZ() ) - ( tempZ * b.getY() ) );
 		vec3[1] = ( ( tempZ * b.getX() ) - ( tempX * b.getZ() ) );
 		vec3[2] = ( ( tempX * b.getY() ) - ( tempY * b.getX() ) );
 		return this;
 	}
-	
+
 	public MathVector multiply( MathMatrix a ) {
 		/**
-		 * Main function. 
+		 * Performs a multiplication of this vector using a transformation matrix.
+		 * The original values are overwritten.
 		 *
-		 * @param  args			Program arguments, although there are none.
+		 * @param  a			The input transformation matrix.
+		 * @return				The resulting vector.
 		 */
 		// Create a temporary array for storing values
 		double[] temp = new double[4];
 		for ( int i = 0; i < 4; i++) {
 			temp[i] = vec3[i];
 		}
-		
+
 		double productTemp = 0.0d;
 		// create the vector
 		for ( int x = 0; x < vec3.length; x++) {

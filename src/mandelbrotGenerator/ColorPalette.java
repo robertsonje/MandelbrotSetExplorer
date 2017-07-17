@@ -21,6 +21,7 @@ public class ColorPalette {
 	private int numColors;
 	private ArrayList<Color> colorLookUpTable;
 	private ColorGradient gradient;
+	private final int ERROR_COEFFICIENT = 50;
 
 	// methods
 
@@ -52,7 +53,7 @@ public class ColorPalette {
 		 *
 		 * @return	the color at the index, or black if out of bounds
 		 */
-		if ( index >= 0 && index < numColors ) {
+		if ( index >= 0 && index < numColors + ERROR_COEFFICIENT ) {
 			return colorLookUpTable.get( index );
 		}
 		else {
@@ -96,8 +97,12 @@ public class ColorPalette {
 			}
 		}
 		// clean up any remaining colors
-		for( int k = colorLookUpTable.size(); k < numColors; k++ ) {
+		for( int j = colorLookUpTable.size(); j < numColors; j++ ) {
 			colorLookUpTable.add( lastColor );
+		}
+		// Make sure that there aren't any leftover colors to cause any problems
+		for( int k = 0; k < ERROR_COEFFICIENT; k++ ) {
+			colorLookUpTable.add( Color.BLACK );
 		}
 		// First color is black
 		colorLookUpTable.set( 0, Color.BLACK );

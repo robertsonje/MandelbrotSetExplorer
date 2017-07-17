@@ -341,7 +341,7 @@ public class MainWindow extends JFrame
 
     public void mouseWheelMoved( MouseWheelEvent e ) {
 		/**
-		 * Mouse moved event handler. Sends the event to the calculateZoom function.
+		 * Mouse wheel moved event handler. Sends the event to the calculateZoom function.
 		 *
 		 * @param  g	Mouse wheel event that contains the mouse coordinates and direction.
 		 */
