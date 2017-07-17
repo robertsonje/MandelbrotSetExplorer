@@ -1,5 +1,7 @@
+mkdir bin
 javac -d bin -cp src src/mandelbrotGenerator/MainProgram.java
-jar cvf MandelBrotGenerator.jar bin rc
-rem java -cp bin mandelbrotGenerator.MainProgram
-@echo off
+cd bin
+jar cvfe ../MandelbrotSetExplorer.jar mandelbrotGenerator.MainProgram ../rc .
+cd .. 
+java -jar MandelbrotSetExplorer.jar
 pause

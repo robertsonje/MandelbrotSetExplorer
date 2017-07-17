@@ -1,5 +1,4 @@
 /**
-* Source file for the settings dialog in the menu
 *
 * @author  Jehrick Robertson
 * @version 1.0
@@ -38,19 +37,6 @@ public class SettingsDialog extends JDialog {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			SettingsDialog dialog = new SettingsDialog();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 	/**
 	 * Create the dialog.

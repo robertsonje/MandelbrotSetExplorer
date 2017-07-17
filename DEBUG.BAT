@@ -1,4 +1,6 @@
 javac -version -g -verbose -d bin -cp src src/mandelbrotGenerator/MainProgram.java
-jdb -cp bin mandelbrotGenerator.MainProgram
+cd bin
+jdb mandelbrotGenerator.MainProgram
+cd ..
 @echo off
 pause
